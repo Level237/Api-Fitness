@@ -20,6 +20,6 @@ class WorkoutLog(SQLModel, table=True):
     user_notes: Optional[str] = None # "Je me sentais fatigué aujourd'hui"
 
     user: "User" = Relationship(back_populates="workout_logs")
-    workout: "Workout" = Relationship(back_populates="workout_logs")
+    #workout: "Workout" = Relationship(back_populates="workout_logs")
     
     

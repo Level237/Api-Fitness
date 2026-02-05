@@ -13,6 +13,6 @@ class Workout(SQLModel,table=True):
 
     exercises: List["WorkoutExercise"] = Relationship(back_populates="workout")
 
-    logs: List["WorkoutLog"] = Relationship(back_populates="workout")
+    logs: List["WorkoutLog"] = Relationship()
     
     
