@@ -12,5 +12,7 @@ class Workout(SQLModel,table=True):
     thumbnail_url: Optional[str] = None
 
     exercises: List["WorkoutExercise"] = Relationship(back_populates="workout")
+
+    logs: List["WorkoutLog"] = Relationship(back_populates="workout")
     
     

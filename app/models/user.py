@@ -38,5 +38,7 @@ class User(UserBase,table=True):
     hashed_password : str = Field(nullable=False)
     created_at : datetime = Field(default=datetime.now())
     updated_at : datetime = Field(default=datetime.now())
+
+    workout_logs: List["WorkoutLog"] = Relationship(back_populates="user")
     
     
