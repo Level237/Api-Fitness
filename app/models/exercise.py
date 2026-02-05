@@ -1,5 +1,5 @@
-from sqlmodel import SQLModel, Field
-from typing import Optional
+from sqlmodel import SQLModel, Field,Relationship
+from typing import Optional,List
 from uuid import UUID,uuid4
 
 class Exercise(SQLModel,table=True):
@@ -13,3 +13,5 @@ class Exercise(SQLModel,table=True):
     equipment_needed : Optional[str] = "Aucun"
 
     is_premium : bool = Field(default=False)
+
+    workouts: List["WorkoutExercise"] = Relationship(back_populates="exercise")

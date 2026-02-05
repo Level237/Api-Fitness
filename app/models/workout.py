@@ -1,5 +1,5 @@
 
-from sqlmodel import SQLModel, Field, Column, JSON
+from sqlmodel import SQLModel, Field, Column, JSON, Relationship
 from typing import Optional, List
 from uuid import UUID,uuid4
 
@@ -8,8 +8,9 @@ class Workout(SQLModel,table=True):
     title:str = Field(index=True)
     difficulty: str
     total_duration: int
-    structure: List[dict] = Field(default=[], sa_column=Column(JSON))
     is_premium: bool = Field(default=True)
     thumbnail_url: Optional[str] = None
+
+    exercises: List["WorkoutExercise"] = Relationship(back_populates="workout")
     
     
